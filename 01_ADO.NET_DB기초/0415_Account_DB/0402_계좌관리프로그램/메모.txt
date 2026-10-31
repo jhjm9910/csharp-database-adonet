@@ -1,0 +1,20 @@
+﻿[프로그램 구성]
+
+WoosongBit
+  - Program.cs  : 흐름
+  - Control.cs  : 관리자 Singleton
+
+WoosongBit.UI
+  - Ui.cs       : 입출력
+
+WoosongBit.Data
+  - Account.cs  : 데이터
+
+WoosongBit.Collection
+  - MyArr.cs    : 저장소
+
+WoosonbBit.Lib
+  - Print.cs    : Static
+  - Input.cs    : Static
+
+   

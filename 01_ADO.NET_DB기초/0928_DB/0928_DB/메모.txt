@@ -1,0 +1,41 @@
+﻿메모.txt
+
+[데이터베이스 프로그래밍]
+
+1. 테이블 구성 (ER-Diagram , 제목 없음.bmp)
+
+2. 필요한 쿼리문 작성
+   1) insert 
+      -- insert 
+      insert into Product (pname, price,description) values('ADO.NET', 15000, 'ADO.NET 교재입니다');
+      insert into Custom  values('허길동', '010-7777-7777');
+      insert into Sale values(3, 1000, 3, GetDate());
+
+   2) update
+      -- update
+     update Product set pname='C#', price=900 where pid = 1000;
+     update Custom set phone='010-1234-1234' where cid = 4;
+    
+   3) delete
+     -- delete
+    delete Custom where cid=4;
+    delete Custom where cname='고길동';
+
+   4) 하나의 값을 획득하는 상황
+     --홍길동은 한명가정
+    select phone from Custom where cname = '홍길동'; 
+
+    --C#은 하나 가정
+    select price from Product where pname = 'C#';　　
+
+    -- 집계함수
+    select sum(price) from Product;
+
+  5) 다중로우 다중컬럼
+    select * from Custom;
+    select cname, phone from Custom where cid = 1;
+
+3. ADO.NET API활용한 구성
+   - 연결, 종료
+   - 명령
+   - 읽기

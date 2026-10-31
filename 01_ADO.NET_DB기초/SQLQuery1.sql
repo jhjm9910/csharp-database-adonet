@@ -1,0 +1,109 @@
+--1번
+--select empno,ename,sal from emp where deptno = 10;
+--2번
+--select ename,datetime,deptno from emp where empno = 7369;
+--이건 emp 찾는 문법: 
+select *from emp;
+--3번
+--select * from emp where ename = 'ALLEN';
+--4번
+--select ename,deptno,sal from emp where datetime = '1983-01-12';
+--5번
+--select *from emp where job<> 'MANAGER';
+--6번
+--select * from emp where datetime>  '1981-04-02';
+--7번
+--select ename,sal,deptno from emp where sal>=800; 
+--8번
+--select * from emp where empno>=20;
+--9번
+--select * from emp where ename>'K';
+--10번
+--select* from emp where datetime<'1981-12-09';
+--11번
+--select empno,ename from emp where empno<=7698;
+--12번
+--select ename,sal,deptno,datetime from emp where datetime>'1981-04-02' and datetime<'1982-12-09';
+--13번
+--select ename,job,sal from emp where sal>1600 and sal<3000;
+--14번 
+--select * from emp where empno NOT BETWEEN 7654 AND 7782;
+--15번
+--select * from emp where ename BETWEEN 'B' AND 'J';
+--16번
+--select * from emp where datetime < '1981-01-01'or datetime>'1981-12-31';
+--17번
+--select ename,empno from emp where deptno not in (20 , 30);
+--18번 
+--select * from emp where job in ('MANAGER, SALESMAN');
+--19번
+--select empno,ename,datetime,deptno from emp where ename like 'S%';
+--20번
+--select * from emp where datetime between '1981-01-01' and '1981-12-31';
+--21번
+--select * from emp where ename like '%S%';
+--22번
+--select * from emp where ename like 'S___T';
+--23번
+--select* from emp where ename like '_A%';
+--24번
+--select* from emp where comm is NULL;
+--25번
+--select* from emp where comm is not NULL;
+--26번
+--select ename,deptno,sal from emp where deptno = 30 and sal>1500;
+--27번
+--select empno,ename,deptno from emp where  ename like 'K%' or deptno = 30;
+--28번
+--select * from emp where sal>1500 and deptno = 30;
+--29번
+--select* from emp where deptno = 30 order by empno;
+--30번
+--select * from emp order by sal desc;
+--31번
+--select * from emp order by deptno asc,sal desc;
+--32번
+--select* from emp order by deptno desc, ename asc,sal desc;
+--33번
+--select ename,sal,comm,(sal + comm) as total from emp where comm is not null order by total desc;
+--34번
+--select ename,sal,(sal*0.13)as bonus,deptno from emp where deptno = 10;
+--35번
+--select ename,deptno,sal,(sal*12+sal*1.5)as ansal from emp where deptno = 30;
+--36번
+--select ename, sal,round(sal/(12*5),0) from emp where deptno = 20;
+--37번
+--select ename, sal, round(sal*0.15,2) from emp where sal BETWEEN 1500 AND 3000;
+--38번
+--select ename, sal,cast(sal*0.15 as int) from emp where sal>=2000;
+--39번
+--select deptno,ename,datetime, getdate()as today,
+--datediff(day,datetime,getdate())AS work_days,
+--datediff(day,datetime,getdate())/360 AS work_years, 
+--datediff(day, datetime, GETDATE()) / 30 AS work_months,
+--datediff(day, datetime, GETDATE()) / 7 AS work_weeks from emp;
+--40번
+--select ename, sal,(sal*0.9)as salary from emp order by sal desc;
+--41번
+--select ename,datetime,dateadd(day,90, datetime)as after_90, sal from emp;
+--42번
+--select datetime, dateadd(month,6,datetime)as after_6mon,sal from emp;
+--43번
+--select deptno,ename,datediff(day,datetime,eomonth(datetime))as work_day from emp;
+--44번
+--select ename, datetime,dateadd(day,(7-datepart(weekday, dateadd(day,60,datetime))+2)%7,dateadd(day,60,datetime))as monday from emp;
+--45번
+--select ename, datetime,datediff(day, datetime,getdate())as work_days from emp;
+--46번
+--select ename,format(datetime,'1999년 10월21일')as datetime from emp;
+--47번
+--select lower(left(ename,3))as name from emp where len(ename)>=6;
+--48번
+--select avg(sal)as avg_sal, max(sal)as max_sal,min(sal)as min_sal,count(*)as peaple from emp where deptno = 20;
+--49번
+--select avg(sal)as avg_sal,max(sal)as max_sal,min(sal)as min_sal,count(sal)as peaple from emp group by emp.DEPTNO
+--50번
+--select deptno,job,count(job)as count_ from emp group by deptno,job;
+--51번
+--select job,count(*)as cnt from emp group by job having count(*)>=4;
+--52번

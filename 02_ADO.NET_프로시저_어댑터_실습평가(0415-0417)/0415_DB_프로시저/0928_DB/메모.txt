@@ -1,0 +1,71 @@
+﻿메모.txt
+
+[데이터베이스 프로그래밍]
+
+1. 테이블 구성 (ER-Diagram , 제목 없음.bmp)
+drop table Account;
+CREATE TABLE [dbo].[Account]
+(
+    [number] INT , 
+    [name] NVARCHAR(50) NOT NULL, 
+    [balance] INT NOT NULL, 
+    [nowdate] DateTime NULL, 
+    CONSTRAINT [PK_Account_Number] PRIMARY KEY ([number])
+)
+
+
+2. 필요한 프로시저 등록
+CREATE PROCEDURE [dbo].[Insert_Account]
+    @number int,
+	@name nvarchar(50),
+	@money int
+AS
+	insert into Account  values(@number, @name, @money, GetDate());
+RETURN 
+
+
+DROP PROCEDURE Select_Account;
+CREATE PROCEDURE [dbo].[Select_Accounts]
+AS
+	select* from Account;
+RETURN 
+
+
+CREATE PROCEDURE [dbo].Select_Account
+    @number int
+AS
+	select* from Account where number = @number;
+RETURN
+
+
+CREATE PROCEDURE [dbo].[Update_Account_Input]
+    @number int,
+	@money int
+AS
+	update Account set balance = balance + @money where number = @number;
+RETURN
+
+CREATE PROCEDURE [dbo].[Update_Account_Output]
+    @number int,
+	@money int
+AS
+	update Account set balance = balance - @money where number = @number;
+RETURN
+
+CREATE PROCEDURE [dbo].[Delete_Account]
+    @number int
+AS
+	delete Account where number = @number;
+RETURN
+
+DROP PROCEDURE SelectAccounts_Order_Number;
+CREATE PROCEDURE [dbo].[SelectAccounts_Order_Number]
+AS
+	select * from Account order by number desc;
+RETURN
+
+DROP PROCEDURE SelectAccounts_Order_Name;
+CREATE PROCEDURE [dbo].[SelectAccounts_Order_Name]
+AS
+	select * from Account order by name desc;
+RETURN

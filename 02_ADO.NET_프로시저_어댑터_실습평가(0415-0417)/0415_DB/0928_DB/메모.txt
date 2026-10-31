@@ -1,0 +1,46 @@
+﻿메모.txt
+
+[데이터베이스 프로그래밍]
+
+1. 테이블 구성 (ER-Diagram , 제목 없음.bmp)
+drop table Account;
+CREATE TABLE [dbo].[Account]
+(
+    [number] INT , 
+    [name] NVARCHAR(50) NOT NULL, 
+    [balance] INT NOT NULL, 
+    [nowdate] DateTime NULL, 
+    CONSTRAINT [PK_Account_Number] PRIMARY KEY ([number])
+)
+
+
+2. 필요한 쿼리문 작성
+  --계좌 저장     
+insert into Account  values('허길동', 50000, GetDate());
+
+--전체 출력
+select * from Account;
+
+--계좌 검색(계좌번호,Uniq)");
+select * from Account where number = 1000;
+
+--계좌 수정(입금)");
+ update Account set balance = balance + 5000 where number = 1000;
+ 
+
+--계좌 수정(출금)");
+ update Account set balance = balance - 5000 where number = 1000;
+ 
+--계좌 삭제");
+delete Account where number=1000;
+
+--계좌 정렬-계좌번호";
+select * from Account order by number desc; --asc
+
+-- 계좌 정렬-이름");
+select * from Account order by name; -- desc; --asc
+
+3. ADO.NET API활용한 구성
+   - 연결, 종료
+   - 명령
+   - 읽기
